@@ -9,6 +9,7 @@
 
 let weight = 68;
 let tall = 1.7;
-console.log(weight / (tall * tall));
+let bmi = weight / (tall * tall);
+console.log(bmi);
 
 

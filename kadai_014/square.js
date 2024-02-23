@@ -2,6 +2,6 @@
 // 計算結果（関数の戻り値）はコンソールに出力してください。
 
 const squared = (num) =>{
-  console.log(num * num);
+  return (num * num);
 }
-squared(5);
+console.log(squared(5));

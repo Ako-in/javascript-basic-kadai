@@ -1,10 +1,11 @@
 const date =new Date();
-const [year, month, day] = [
-  date.getFullYear(),
-  date.getMonth(),
-  date.getDate(),
-];
+const currentDate = {
+  "year" : date.getFullYear(),
+  "month" : date.getMonth()+1,
+  "date" : date.getDate(),
+};
 
-console.log(date);
+console.log(currentDate.year+ '年'+currentDate.month + '月'+ currentDate.date + '日');
+
 
 

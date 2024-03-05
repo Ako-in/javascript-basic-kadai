@@ -12,8 +12,8 @@ const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const count = document.getElementById('count');
 const typedCount = document.getElementById('typed-count');
-// const timeupMessage = document.getElementById('timeup-message');
-const timeupMessage = 'タイムアップ';
+
+
 
 // 複数のテキストを格納する配列
 const textLists = [
@@ -104,6 +104,31 @@ const rankCheck = score => {
   
 };
 
+const showTimeup=()=>{
+  const timeupMessage = document.getElementById('timeup_message');
+  console.log('aaa');
+    // setTimeout(()=>{
+    console.log('zzz');
+        wrap.classList.remove('typed');
+        console.log('bbb');
+        console.log(timeupMessage);
+        timeupMessage.textContent("timeupMessage");
+        console.log('ccc');
+    
+        console.log(timeupMessage);
+    
+        wrap.classList.remove('untyped');
+        console.log('ddd');
+        // timeupMessage.textContent('timeupMessage');
+        // console.log('timeupMessage');
+    
+     
+    // },1000);
+  }
+
+
+
+
 // ゲーム終了
 const gameOver = id =>{
   clearInterval(id);
@@ -128,10 +153,14 @@ const timer = () =>{
     // カウントが０になったらタイマーを止める
     if(time <= 0){
       // clearInterval(id);
+      // setTimeout(()=>{
+      showTimeup();
+      setTimeout(()=>{
+      
       gameOver(id);
-      wrap.classList.remove('mistyped');
-      wrap.classList.remove('typed');
-      timeupMessage.textContent='タイムアップ！';      
+     },1000);
+      
+      // timeupMessage.textContent='タイムアップ！';      
     }
   },1000);
 };
@@ -160,25 +189,14 @@ untypedfield.textContent ='スタートボタンで開始';
 // 1.カウントダウンが０になった時、表示しているテキストを非表示
 // 2."タイムアップ"という文字を表示させる
 
-// setTimeout(()=>{
-//   let time = count.textContent;
-//   if(time<= 0){
-//     clearTimeout(id);
-//     wrap.classList.remove('typed');
-//     timeup-message.textContent('timeupMessage');
-    
-//   }else{
-//     wrap.classList.remove('untyped');
-//     timeup-message.textContent('timeupMessage');
-//     // console.log('timeupMessage');
 
-//   }
-// },100);
+
+
+
 
 // function time_up(){
 //   if(time <=1){
 //     console.log('タイムアップ！');
-//     // document.write('タイムアップ！');
 //   }
 // }
 

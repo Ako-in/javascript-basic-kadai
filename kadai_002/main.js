@@ -108,11 +108,10 @@ const showTimeup=()=>{
   const timeupMessage = document.getElementById('timeup_message');
     setTimeout(()=>{
         timeupMessage.textContent='タイムアップ！'; 
-        wrap.classList.remove('typed'); 
-        console.log('aaa');
-        wrap.classList.remove('untyped');
+        typedfield.style.display='none';
+        untypedfield.style.display='none';
            
-    },100);
+    },10);
   }
 
 

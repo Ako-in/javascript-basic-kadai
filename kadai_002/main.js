@@ -106,24 +106,13 @@ const rankCheck = score => {
 
 const showTimeup=()=>{
   const timeupMessage = document.getElementById('timeup_message');
-  console.log('aaa');
-    // setTimeout(()=>{
-    console.log('zzz');
-        wrap.classList.remove('typed');
-        console.log('bbb');
-        console.log(timeupMessage);
-        timeupMessage.textContent("timeupMessage");
-        console.log('ccc');
-    
-        console.log(timeupMessage);
-    
+    setTimeout(()=>{
+        timeupMessage.textContent='タイムアップ！'; 
+        wrap.classList.remove('typed'); 
+        console.log('aaa');
         wrap.classList.remove('untyped');
-        console.log('ddd');
-        // timeupMessage.textContent('timeupMessage');
-        // console.log('timeupMessage');
-    
-     
-    // },1000);
+           
+    },100);
   }
 
 
@@ -190,15 +179,6 @@ untypedfield.textContent ='スタートボタンで開始';
 // 2."タイムアップ"という文字を表示させる
 
 
-
-
-
-
-// function time_up(){
-//   if(time <=1){
-//     console.log('タイムアップ！');
-//   }
-// }
 
 
 

@@ -146,7 +146,7 @@ const timer = () =>{
       setTimeout(()=>{
       
       gameOver(id);
-     },1000);
+     },10);
       
       // timeupMessage.textContent='タイムアップ！';      
     }

@@ -5,13 +5,13 @@ let score = 0;
 
 
 
-// 必要なHTML要素の取得
+// 必要なHTML要素の取得を宣言する（まだ使ってない）
 const typedfield = document.getElementById('typed');
 const untypedfield = document.getElementById('untyped');
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const count = document.getElementById('count');
-const typedCount = document.getElementById('typed-count');
+const typedCount = document.getElementById('increase-score');
 
 
 
@@ -32,15 +32,17 @@ const textLists = [
    'programming'
 ];
 
-// ランダムテキストの表示
+// ランダムテキストの表示する、まだ実行していない
 const createText = () =>{
   // 正タイプした文字をクリア
   typed = '';
   typedfield.textContent = typed;
   // console.log(Math.random()*textLists.length);
   // Math.foor()メソッドで切り捨て
-  console.log(Math.floor(Math.random() * textLists.length));
+  // math.randomは乱数なので、切り捨ててtextListsの文字の長さを表示する
+  // console.log(Math.floor(Math.random() * textLists.length));
   // 配列のインデックス数からランダムな数値を育成する
+  // let:再宣言不可、宣言しただけ、まだ使ってない
   let random = Math.floor(Math.random()*textLists.length);
   // 配列textListの０番目を表示
   // untyped = textLists[0];
@@ -51,6 +53,25 @@ const createText = () =>{
 
 };
 createText();
+
+// 入力した文字数をカウントする
+// 1.現在のタイプ数を記録する変数を用意する
+// 2.タイピングをしたときに、↑の変数に1を追加して表示させる
+
+const increaseScore = (countingScore) =>{
+  // HTML:increase-scoreにtextContentにcouningScoreを
+  // 代入：カウントする、テキストが変わると０からのカウントになる。
+    typedCount.textContent = countingScore;
+    
+    
+}
+
+
+// const sumScore=()=>{
+//   countingScore++;
+// }
+
+// sumScore();
 
 // キー入力の判定
 const keyPress = e =>{
@@ -69,10 +90,16 @@ const keyPress = e =>{
   score++;
   wrap.classList.remove('mistyped');
   typed += untyped.substring(0,1);
-  // typed = typed+ untyped.susstring(0,1);と同じ意味
+  // console.log(typed);
+  // typed = typed+ untyped.substring(0,1);と同じ意味
   untyped = untyped.substring(1);
+  // console.log(untyped);
   typedfield.textContent = typed;
   untypedfield.textContent = untyped;
+  // 文字カウントを表示させる
+  increaseScore(typed.length);
+  // テキストが変わった後もカウントする
+  increaseScore++;
 
   // テキストがなくなったら新しいテキストを表示
   if(untyped ===''){
@@ -148,28 +175,4 @@ start.addEventListener('click',() =>{
   document.addEventListener('keypress',keyPress);
 })
 
-// 入力した文字数をカウントする
-// 1.現在のタイプ数を記録する変数を用意する
-// 2.タイピングをしたときに、↑の変数に1を追加して表示させる
-
-// const increaseScore = () =>{
-//   let increaseScore = 0;
-//   // if(e.key === typed){
-//   //   increaseScore++;
-//   // }else{
-//   //   increaseScore;
-//   // }
-//   increaseScore++;
-  
-// }
-const increaseScore = document.getElementById('increase-score');
-
-let increaseScore=0;
-if(e.key === typed){
-  increaseScore++;
-}else{
-  increaseScore;
-}
-
 untypedfield.textContent ='スタートボタンで開始';
-

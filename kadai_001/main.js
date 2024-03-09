@@ -63,15 +63,13 @@ const increaseScore = (countingScore) =>{
   // 代入：カウントする、テキストが変わると０からのカウントになる。
     typedCount.textContent = countingScore;
     
-    
 }
 
+const sumScore=()=>{
+  countingScore++;
+}
+sumScore;
 
-// const sumScore=()=>{
-//   countingScore++;
-// }
-
-// sumScore();
 
 // キー入力の判定
 const keyPress = e =>{
@@ -98,10 +96,6 @@ const keyPress = e =>{
   untypedfield.textContent = untyped;
   // 文字カウントを表示させる
   increaseScore(typed.length);
-  const sumScore = () =>{
-    increaseScore++;
-  }
- 
 
   // テキストがなくなったら新しいテキストを表示
   if(untyped ===''){
@@ -114,8 +108,7 @@ const keyPress = e =>{
 // タイピングスキルのランク判定
 const rankCheck = score => {
 
-   // テキストが変わった後もカウントする
-   sumScore();
+   
   
   // テキストを格納する変数を作る
   let text = '';

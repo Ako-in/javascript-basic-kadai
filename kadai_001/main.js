@@ -98,8 +98,10 @@ const keyPress = e =>{
   untypedfield.textContent = untyped;
   // 文字カウントを表示させる
   increaseScore(typed.length);
-  // テキストが変わった後もカウントする
-  increaseScore++;
+  const sumScore = () =>{
+    increaseScore++;
+  }
+ 
 
   // テキストがなくなったら新しいテキストを表示
   if(untyped ===''){
@@ -111,6 +113,9 @@ const keyPress = e =>{
 
 // タイピングスキルのランク判定
 const rankCheck = score => {
+
+   // テキストが変わった後もカウントする
+   sumScore();
   
   // テキストを格納する変数を作る
   let text = '';

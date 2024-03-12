@@ -3,8 +3,6 @@ let untyped = '';
 let typed = '';
 let score = 0;
 
-
-
 // 必要なHTML要素の取得を宣言する（まだ使ってない）
 const typedfield = document.getElementById('typed');
 const untypedfield = document.getElementById('untyped');
@@ -12,8 +10,6 @@ const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const count = document.getElementById('count');
 const typedCount = document.getElementById('increase-score');
-
-
 
 // 複数のテキストを格納する配列
 const textLists = [
@@ -52,7 +48,7 @@ const createText = () =>{
   untypedfield.textContent = untyped;
 
 };
-createText();
+// createText();
 
 // 入力した文字数をカウントする
 // 1.現在のタイプ数を記録する変数を用意する
@@ -62,14 +58,8 @@ const increaseScore = (countingScore) =>{
   // HTML:increase-scoreにtextContentにcouningScoreを
   // 代入：カウントする、テキストが変わると０からのカウントになる。
     typedCount.textContent = countingScore;
-    
-}
 
-const sumScore=()=>{
-  countingScore++;
-}
-sumScore;
-
+};
 
 // キー入力の判定
 const keyPress = e =>{
@@ -95,21 +85,18 @@ const keyPress = e =>{
   typedfield.textContent = typed;
   untypedfield.textContent = untyped;
   // 文字カウントを表示させる
-  increaseScore(typed.length);
+  // console.log(score);
+  increaseScore(score);
+
 
   // テキストがなくなったら新しいテキストを表示
   if(untyped ===''){
     createText();
   }
-
-  
 };
 
 // タイピングスキルのランク判定
 const rankCheck = score => {
-
-   
-  
   // テキストを格納する変数を作る
   let text = '';
 
@@ -156,8 +143,6 @@ const timer = () =>{
       gameOver(id);
     }
   },1000);
-
-  
 };
 
 // ゲームスタートの処理
@@ -171,6 +156,6 @@ start.addEventListener('click',() =>{
 
   // キーボードのイベント処理
   document.addEventListener('keypress',keyPress);
-})
+});
 
 untypedfield.textContent ='スタートボタンで開始';
